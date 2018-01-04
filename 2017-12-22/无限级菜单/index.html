@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title></title>
+		<style>
+			html {
+				width: 100%;
+				height: 1000px;
+			}
+			body{
+				margin: 0px;
+				width: 100%;
+				height: 100%;
+			}
+			.main {
+				width: 100%;
+				height: 100%;
+				background: url(./image/bg.png) no-repeat;
+				background-size: 100% 100%;
+				overflow: hidden;
+			}
+			.logo {
+				display: block;
+				width: 200px;
+				height: 55px;
+				background: url(./image/logo.png) no-repeat;
+				margin: 20px auto;
+			}
+			ul{
+				list-style: none;
+				font-size: 22px;
+				color: #8c949c;
+				font-weight: bold;
+				
+			}
+
+			ul li {
+				position: relative;
+				padding-left: 10px;
+				
+			}
+
+			ul li div{
+				height: 98%;
+				width: 1px;
+				border-left: 1px dotted #ccc;
+				position: absolute;
+				left: 14px;
+				top: 18px;
+			}
+
+			ul ul{
+				display: none;
+			}
+
+			ul li h2 {
+				display: block;
+				line-height: 32px;
+				margin: 0px;
+				font-size: 22px;
+				padding-left: 15px;
+				background: url(./image/icon.png) no-repeat left 500px;
+
+			}
+			ul li span {
+				display: block;
+				line-height: 32px;
+				padding-left: 15px;
+				background: url(./image/icon.png) no-repeat left 500px;
+
+			}
+			
+			ul li h2.add {
+				background-position: 0px -32px;
+			}
+			ul li h2.line {
+				background-position: 0px 11px;
+			}
+			.tree {
+				margin-left: 300px;
+			}
+			
+            
+		</style>
+	</head>
+
+	<body>
+		<div class="main">
+			<a href="http://www.miaov.com" class="logo"></a>
+			<div class="tree">
+				<ul id="oUl">
+					<!-- <li><span>第一级菜单</span></li>
+					<li>
+						<span class="add">第一级菜单</span>
+						<ul id="oUl2">
+							<li><span>第二级菜单</span></li>
+							<li><span>第二级菜单</span></li>
+							<li>
+								<span class="add">第二级菜单</span>
+								<ul id="oUl3">
+									<li><span>第三级菜单</span></li>
+									<li><span>第三级菜单</span></li>
+									<li><span>第三级菜单</span></li>
+								</ul>
+							</li>
+						</ul>
+					</li> -->
+				</ul>
+			</div>
+
+		</div>
+
+		<script>
+			let arr = [
+		    {
+		        title : "第一级菜单",
+		        child : [
+		        	{title:"第二集菜单",name : '你好'},
+		            {title:"第二集菜单",
+		            child:[
+		            		{title:"第三集菜单"},
+		            		{title:"第三集菜单",
+		            		child:[
+		            			{title:"第四集菜单"},
+		            			{title:"第四集菜单"},
+		            			{title:"第四集菜单"}
+		            		]
+		            		},
+		            		{title:"第三集菜单"}
+		            	]
+		        	},
+		            {
+		            	title:"第二集菜单",
+		            	child:[
+		            		{title:"第三集菜单"},
+		            		{title:"第三集菜单"}
+		            	]
+		            }
+		        ]
+		    },
+		    {
+		        title : "第一级菜单",
+		        child : [
+		        	{title:"第二集菜单"},
+		            {title:"第二集菜单",
+		            child:[
+		            		{title:"第三集菜单"},
+		            		{title:"第三集菜单",
+		            		child:[
+		            			{title:"第四集菜单"},
+		            			{title:"第四集菜单"},
+		            			{title:"第四集菜单"}
+		            		]
+		            		},
+		            		{title:"第三集菜单"}
+		            	]
+		        	},
+		            {
+		            	title:"第二集菜单",
+		            	child:[
+		            		{title:"第三集菜单"},
+		            		{title:"第三集菜单"}
+		            	]
+		            }
+		        ]
+		    },
+		    {
+		    	title:"第一集菜单",
+		    	child : [
+		        	{title:"第二集菜单"},
+		            {title:"第二集菜单",
+		            
+		        	},
+		            {
+		            	title:"第二集菜单",
+		            	child:[
+		            		{title:"第三集菜单"},
+		            		{title:"第三集菜单"}
+		            	]
+		            }
+		        ]
+		         
+		    }
+		];
+		
+		/*
+			通过数据把结构生成出来。
+		*/
+		let oUl = document.getElementById('oUl');
+		
+		oUl.innerHTML = `<li>
+							<h2 class="add">${arr[0].title}</h2>
+							<ul>
+								<li><span>${arr[0].child[0].title}</span></li>
+								<li>
+									<h2 class="add">${arr[0].child[0].title}</h2>
+									<ul>
+										<li><span>${arr[0].child[1].child[0].title}</span></li>
+										<li>
+										    <h2 class="add">${arr[0].child[1].child[1].title}</h2>
+											<ul>
+											     <span>${arr[0].child[1].child[1].child[0].title}</span>
+												 <span>${arr[0].child[1].child[1].child[0].title}</span>
+												 <span>${arr[0].child[1].child[1].child[0].title}</span>
+											</ul>
+										</li>
+										<li><span>${arr[0].child[1].child[0].title}</span></li>
+									</ul>
+								</li>
+								<li>
+								   <h2 class="add">${arr[0].child[0].title}</h2>
+								   <ul>
+										<li><span>${arr[0].child[1].child[0].title}</span></li>
+										<li><span>${arr[0].child[1].child[0].title}</span></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>
+						   <h2 class="add">${arr[0].title}</h2>
+						   <ul>
+						      <li><span>${arr[0].child[0].title}</span></li>
+							  <li><span>${arr[0].child[0].title}</span></li>
+							  <li>
+							     <h2 class="add">${arr[0].child[0].title}</h2>
+								 <ul>
+								    <li><span>${arr[0].child[1].child[0].title}</span></li>
+									<li>
+									   <h2 class="add">${arr[0].child[1].child[0].title}</h2>
+									   <ul>
+									       <li><span>${arr[0].child[1].child[1].child[0].title}</span></li>
+										   <li><span>${arr[0].child[1].child[1].child[0].title}</span></li>
+										   <li><span>${arr[0].child[1].child[1].child[0].title}</span></li>
+									   </ul>
+									</li>
+									<li><span>${arr[0].child[1].child[0].title}</span></li>
+								 </ul>
+							  </li>
+							  <li>
+							     <h2 class="add">${arr[0].child[0].title}</h2>
+								 <ul>
+								    <li><span>${arr[0].child[1].child[0].title}</span></li>
+									<li><span>${arr[0].child[1].child[0].title}</span></li>
+								 </ul>
+							  </li>
+						   </ul>
+						</li>
+						<li>
+						   <h2 class="add">${arr[0].title}</h2>
+						   <ul>
+						      <li><span>${arr[0].child[0].title}</span></li>
+							  <li><span>${arr[0].child[0].title}</span></li>
+							  <li>
+							     <h2 class="add">${arr[0].child[0].title}</h2>
+								 <ul>
+								    <li><span>${arr[0].child[1].child[0].title}</span></li>
+									<li><span>${arr[0].child[1].child[0].title}</span></li>
+								 </ul>
+							  </li>
+							</ul>
+						</li>`;
+
+					
+			const h2 = Array.from(document.querySelectorAll('h2'));
+			h2.forEach(function(el,i){
+				el.onclick = function(){
+					
+					if(this.nextElementSibling){
+						if(this.nextElementSibling.style.display == 'none'){
+							this.nextElementSibling.style.display = 'block';
+							this.classList.add('line');
+							this.classList.remove('add');
+						}else{
+							this.nextElementSibling.style.display = 'none';
+							this.classList.remove('line');
+							this.classList.add('add');
+						}
+					}
+					
+				}
+			});
+
+
+		</script>
+	</body>
+</html>
