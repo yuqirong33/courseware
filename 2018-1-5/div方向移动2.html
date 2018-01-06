@@ -46,13 +46,14 @@
             box.style.left = box.offsetLeft + speed + 'px';
         }
     }
-    
+
     document.onkeydown = function(ev){
-        // alert(timer);
+
         if(!timer){
             timer = setInterval(fn,20);
         }
         obj[ev.keyCode] = true;
+        
     }
 
     document.onkeyup = function(ev){
