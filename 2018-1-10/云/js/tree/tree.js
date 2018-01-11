@@ -12,7 +12,7 @@ function renderTree(pid){
    // let pData = data[pid]; //父级对象
     let html = '';
     html += `<ul style="padding-left:${num*5}px">`;
-    let arr = t.getchilds(pid);
+    let arr = t.getchilds(pid);
     arr.forEach(e=>{
         let arr = t.getchilds(e.id);
         html += `<li>
