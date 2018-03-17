@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            height:600px;
+            border:2px solid #0b4b5a;
+            display: grid;
+            grid-template-columns:repeat(3,1fr) 100px repeat(2,1fr);
+            grid-template-rows:repeat(3,1fr);
+            grid-gap:10px 20px;
+        }
+
+        span{
+            background: #f2bdc7;
+            border:1px solid #f00283;
+        }
+
+        .min{
+            background: #00AEFF;
+            /*grid-column-start:3;*/
+            /*grid-column-end:4;*/
+            grid-column: 2 / 4;
+            grid-row:1 / 4;
+        }
+    </style>
+
+    <!--
+        单元格合并
+            合并列
+            grid-column-start: 1; 开始合并的列 从父级最左边开始算 如果有三列子元素，那么父级的最右边是4
+            grid-column-end: 4; 结束合并的列
+            grid-column: 2 / 4; 开始合并的列和结束合并的列 （复合样式）
+
+            合并行
+            grid-row-start: 1;开始合并的行
+            grid-row-end: 4;结束合并的列
+            grid-row: 2 / 4; 开始合并的列和结束合并的列
+
+            注： grid-column-start grid-row-start 这两个样式还可以设置当前元素的位置的坐标
+
+
+    -->
+</head>
+<body>
+
+<div class="box">
+    <span>1</span>
+    <span class="min">2</span>
+    <span>33333</span>
+    <span>4</span>
+    <span>5</span>
+    <span>6</span>
+    <span>7</span>
+    <span>8</span>
+    <span>9</span>
+    <span>0</span>
+</div>
+
+</body>
+</html>

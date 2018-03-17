@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            height:600px;
+            border:2px solid #0b4b5a;
+            display: grid;
+            grid-template-columns:repeat(3,1fr) 100px repeat(2,1fr);
+            grid-template-rows:repeat(3,1fr);
+            grid-gap:10px 20px;
+        }
+
+        span{
+            background: #f2bdc7;
+            border:1px solid #f00283;
+        }
+
+        .min{
+            display: grid;
+            grid-template-columns:repeat(3,1fr);
+            grid-template-rows:repeat(2,1fr);
+        }
+    </style>
+
+<!--
+    display: grid;  基类
+        grid-template-columns: 100px 200px；
+            定义每一列的宽度以及多少列
+           可以给多个值 如100px 200px 300px 这里定义了三列 宽度分别是100 200 300
+           repeat(4, 1fr) 利用repeat函数来创建多个重复的列 第一个值是多少列 第二个值是每一列的宽度
+
+           注： fr 是相对单位 相当于弹性盒模型里的一份，在这里把父级的宽度分成了4份 一个单元格占一份
+
+       grid-template-rows: minmax(100px,auto) repeat(2, 100px);
+          定义每一行的高度以及多少行
+          可以给定值 如100px 200px 300px 同上
+          minmax(100px,auto) 用minmax函数定义一行的最小高度和最大高度
+
+        grid-gap
+            用来创建行和列之间的空隙
+            接受两个值  第一个是行与行之间的间距 第二个是列与列之间的间距
+            如果只给一个值，那么行与列之间的间距是一样的
+
+            拆分样式：
+            grid-row-gap  定义行与行之间的空隙
+            grid-column-gap 定义列与列之间的空隙
+
+
+-->
+</head>
+<body>
+
+<div class="box">
+    <span></span>
+    <span class="min">
+        <span></span><span></span><span></span><span></span><span></span>
+    </span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
+
+</body>
+</html>

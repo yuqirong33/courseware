@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            height:600px;
+            border:2px solid #0b4b5a;
+            display: grid;
+            grid-template-columns:repeat(3,1fr) 100px repeat(2,1fr);
+            grid-template-rows:repeat(3,1fr);
+            grid-gap:10px 20px;
+        }
+
+        span{
+            background: #f2bdc7;
+            border:1px solid #f00283;
+        }
+
+        .min{
+            background: #00AEFF;
+            grid-column: 2 / span 5;
+            grid-row: 1 / span 2;
+        }
+    </style>
+
+    <!--
+        单元格合并
+          定义要合并的数量
+          如: grid-column: 2 / span 3;  从第二列开始合并，往后面合并三列
+
+    -->
+</head>
+<body>
+
+<div class="box">
+    <span>1</span>
+    <span class="min">2</span>
+    <span>33333</span>
+    <span>4</span>
+    <span>5</span>
+    <span>6</span>
+    <span>7</span>
+    <span>8</span>
+    <span>9</span>
+    <span>0</span>
+</div>
+
+</body>
+</html>
