@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <!--super 可以重新设置一个方法覆盖他原有的方法-->
+   <script>
+       let breakfast={
+           getDrink(){
+               return 'tea';
+           }
+       }
+
+       let dinner={
+           getDrink(){
+               return 'juice';
+           }
+       }
+
+       let sunday = {
+           __proto__:breakfast,
+           getDrink(){
+             return super.getDrink()+',beer'//可以得到他返回的东西 //执行一下breakfast的getDrink()方法
+           }
+            
+        };
+    console.log(sunday.getDrink());
+   </script> 
+</body>
+</html>

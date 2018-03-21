@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //用解构对象的方法 我们可以很容易为函数设置一个对象的参数
+        function breakfast(dessert,drink,{location,restaurant}={}){
+            console.log(dessert,drink,location,restaurant);
+        }
+        breakfast('cake','tea',{location:'济南',restaurant:'董小姐'})
+    </script>
+    
+</body>
+</html>

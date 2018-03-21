@@ -1,0 +1,98 @@
+@rem:108rem;
+@color:red;
+
+
+////变量 移动端适配 大小
+//.box1{
+//  width:600/@rem;
+//  height:600/@rem;
+//  background-color:@color;
+//  margin-bottom:50/@rem;
+//}
+//.box2{
+//  width:400/@rem;
+//  height:400/@rem;
+//  background-color:@color;
+//}
+
+
+//变量  支持属性值
+//@pro:color;
+//
+//.box1{
+//  width:100px;
+//  height:100px;
+//  line-height: 100px;
+//  background-@{pro}:pink;
+//  @{pro}:blue;
+//  text-align: center;
+//}
+
+////混合
+//.boreder {
+//    border-top: dotted 1px black;
+//    border-bottom: solid 2px black;
+//}
+//.box1{
+//  color:green;
+//  .boreder;
+//}
+
+////嵌套
+// .box2{
+//     background-color:pink;
+//     width:100px;
+//     height:100px;
+//     .aaa{
+//         .text{
+//             color:#008000;
+//             text-align:center;
+//             &:hover{
+//                color:yellow;
+//             }
+//         } 
+//     }     
+// }
+
+
+//运算
+@var:20px+10;
+.box1{
+ width:@var;
+ height:(@var+10)*2;
+ border:1px solid #000;
+}
+
+////作用域
+//@var: red;
+//.box2 {
+//@var: yellow;
+//width:100px;
+//height:100px;
+//border:1px solid @var;
+//.text{
+// color: @var; 
+//}
+//}
+//.box1 {
+//width:100px;
+//height:100px;
+//background-color: @var; 
+//}
+
+////命名空间
+//.box2 {
+//.aaa {
+//  display: block;
+//  border: 1px solid black;
+//  background-color: grey;
+//  &:hover {
+//    background-color: green
+//  }
+//}
+//}
+//.box1  {
+//color: orange;
+//.box2 > .pane;
+//}
+

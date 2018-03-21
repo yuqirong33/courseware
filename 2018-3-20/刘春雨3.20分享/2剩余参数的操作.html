@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //作用:把参数的值输出到控制台上 想要操作更多数字，不受限制 用...foods 表示除了dessert和drink指定的参数外，其他的参数放在foods的数组里
+        // ...foods 除了可以指定dessert 和drink这个参数的值 其余的参数都会放到一个foodd 数组里面 
+        function breakfast (dessert,drink,...foods){
+            console.log(dessert,drink)
+            console.log(...foods)
+        }
+        breakfast('cake','tea','apple','pear')
+    </script>
+</body>
+</html>

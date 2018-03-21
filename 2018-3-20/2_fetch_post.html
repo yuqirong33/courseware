@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+.ok{
+    color:green
+}
+.no{
+    color:red
+}
+
+</style>
+</head>
+<body>
+    <!-- <form action="/get"> -->
+        用户名:<input type="text" name="name" id="user"/><span id="span"></span>
+        <br />
+        密码:<input type="text" name="pass"/> 
+        <input type="button" value="提交"/>  
+    <!-- </form> -->
+<script>
+
+    /*
+        post传参的时候有坑！！！！！
+    */
+    let user = document.getElementById('user');
+    let span = document.getElementById('span');
+    user.onfocus = function(){
+        this.className = '';
+    }
+    //name='+this.value
+   
+    user.onblur = function(){
+
+        let obj = JSON.stringify({
+            user:this.value
+        });
+
+        fetch('/post',{
+            method:'POST',
+            // headers:{
+            //     "Content-type":"application:/x-www-form-urlencoded:charset=UTF-8"
+            // },
+            headers:{},
+            body:obj//`data=${JSON.stringify({"user":this.value})}`
+        })
+        .then((response)=> response.json())
+        .then((data)=>{
+            console.log(data);
+        });
+    }
+
+    /*
+        if(obj.code === 0){
+                user.className = 'no';
+            }else{
+                user.className = 'ok';
+            }
+
+            span.innerText = obj.msg;
+    */
+</script>
+</body>
+</html>

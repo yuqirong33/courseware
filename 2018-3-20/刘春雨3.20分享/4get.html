@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //在类里面可以设置一些方法 获取用get 设置用set
+
+        class Chef{
+            constructor(food){
+                this.food = food;
+                this.dish = [];
+            }
+
+            get menu(){
+                return this.dish;
+            }
+
+            set menu (dish){
+                this.dish.push(dish);
+            }
+
+            cook(){
+                console.log(this.food)
+            }
+        }
+
+        let wanghao = new Chef('apple');
+        // wanghao.cook();
+        console.log(wanghao.menu = 'fish');
+        console.log(wanghao.menu = 'beef');
+        console.log(wanghao.menu);
+    </script>
+</body>
+</html>

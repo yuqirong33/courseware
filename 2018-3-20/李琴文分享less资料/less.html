@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+	1.less是什么？
+			Less 是一门 CSS 预处理语言，是 CSS的一种扩展，主要增加了诸如变量、混合（mixin）、函数等功能，让CSS更加好维护。
+			它使用的是.less作为文件后缀，通过第三方工具，可以一键或者实时编译成对应的css文件。
+			
+	2.less的使用方法
+	第一种：	在服务端使用less
+			通过node管理器nmp快速安装，输入命令
+			(1) 安装好nodejs后，在命令行输入：
+				npm install -g less 
+			(2) 安装 Less 后，就可以在命令行上调用 Less 编译器了
+				lessc styles.less
+			(3) 这将输出编译之后的 CSS 代码到stdout，你可以将输出重定向到一个文件：
+				lessc styles.less > styles.css
+			(4) 若要输出压缩过的 CSS，只需添加 -x 选项:
+				lessc styles.less > styles.css -x
+			这个是安装lessc,缺点是 不支持实时编译
+	
+	第二种：Koala
+		koala是一个前端预处理器语言图形编译工具，支持Less、Sass。支持跨平台运行，完美兼容windows、linux、mac。
+		第三方工具，适合小白使用，功能强大的不要不要的，最大的特色是支持实时编译，简单，方便
+		附带地址：可自行安装
+		官网：http://koala-app.com/index-zh.html
+		下载：https://pan.baidu.com/s/1o7wLvPg
+		
+	3.语言特性：
+	 (1) 变量
+	 	变量的作用就是把值定义在一个地方（或一个文件里，通过@import导入），然后在各处使用，这样能让代码更易维护。
+	 	使用@符号定义。例如：
+	 	1) @color:red;
+		 	.box1{
+		 		background-color:  @color;//直接引用变量
+		 	}
+		 	生成：
+		 	.box1{
+		 		background-color:  red;//直接引用变量
+			 }
+			 
+
+			 ***
+			 ///移动端适配方法，动态计算scale的值
+			 /*比如 这个设计图是750px,那就是1rem=750/10,相当于75像素
+				 如果一个div的宽度是10px,换算成rem就是10/75
+				 在less里面 就是 75/@rem
+				 
+				 如果需要深入理解的话，提供 链接地址：
+				 移动端适配详解
+				 http://blog.csdn.net/u014477038/article/details/52947573
+
+
+				 需要注意的是：
+				 a.不管使用北京图还是img，一定要调整对应的size（大小）background-size属性，
+				 		如果图片大小和容器大小一致，则可以使用100%，如果不一致，则针对图片分别设置宽高；
+				 b.碰到文字，一定要测量行高，不然高度会不准确；
+			 */
+		 	
+		 2) 变量也支持URLs：
+			@images:"../img";
+			body{
+		    	background:url('@{images}/banner.png');
+			}
+			、
+			**需要注意的是 url 里面images 需要中扣号包一下
+			
+		3) 属性也支持变量的形式
+			@pro:color;
+			.box1{
+				@{pro}:#333;
+				background-@{pro}:#222;
+			}
+		
+	 (2)混合(Mixin)
+	 	混合就是前面定义的一个样式，后文可以直接引用。示例：
+		.bordered {
+		  border-top: dotted 1px black;
+		  border-bottom: solid 2px black;
+			}
+		//引用混合
+		box1{
+		  color: #111;
+		  .bordered;
+		}
+		上面代码我们首先定义了一个通过属性集的class，然后我们在另一个class中调用这个属性的class，这就是最基本的混合，任何CSS的 class、id、标签元素的属性集都可以以上面的方式引入。
+	
+	(3)嵌套
+		可以在一个css里有多个css块，一层套一层，节省时间，以方便我们更好的组织代码，编写css模板
+		感觉和DOM结构很像，注意&符号是串联选择器，代表着前一个元素，用在伪类上最好了，如:hover。
+		.box2{
+		    background-color:pink;
+		    width:100px;
+		    height:100px;
+		    .pane{
+		        .text{
+		            color:#008000;
+		            text-align:center;
+		            &:hover{
+		               color:yellow;
+		            }
+		        } 
+		    }     
+		}
+		
+		
+	(4) 运算
+		任何数字、颜色或者变量都可以参与运算,可以加扣号进行运算。案例：
+		// 单位运算
+		@var: 1px + 5;  //6px;
+		// 带括号
+		width: (@var + 5) * 2;      //22
+		// 复合属性运算
+		border: (@width * 2) solid black  //12px
+			
+	(5) less 作用域
+		首先会从本地查找变量或者混合模块，如果没找到的话会去父级作用域中查找，直到找到为止。
+		@var: red;
+		.box2 {
+		  @var: yellow;
+		  width:100px;
+		  height:100px;
+		  border:1px solid @var;  //yellow
+		  .text{
+		   color: @var;  //yellow
+		  }
+		}
+		.box1 {
+		  width:100px;
+		  height:100px;
+		  background-color: @var;  //red
+		}
+		
+	(6)  命名空间
+		说白了，就是将变量或者混合模块打包起来 ，以便日后重复使用,使其模块化。
+		.box2 {
+		  .pane {
+		    display: block;
+		    border: 1px solid black;
+		    background-color: grey;
+		    &:hover {
+		      background-color: green
+		    }
+		  }
+		}
+		.box1  {
+		  color: orange;
+		  .box2 > .pane;
+		}
+		
+		生成：
+		.box1 {
+		  color: orange;
+		  display: block;
+		  border: 1px solid black;
+		  background-color: grey;
+		}
+		.box1:hover {
+		  background-color: #008000;
+		}
+		
+		
+	(7)函数
+		Less 内置了多种函数用于转换颜色、处理字符串、算术运算等
+		@base: #f04615;
+		@width: 0.5;
+		
+		.class {
+		  width: percentage(@width); // returns `50%`
+		  color: saturate(@base, 5%);
+		  background-color: spin(lighten(@base, 25%), 8);
+		}
+		
+		
+		生成：
+			.class {
+			  width: 50%;
+			  color: #f6430f;
+			  background-color: #f8b38d;
+			}
+		
+		
+		
+		
+	附带参考地址：
+		1、快速入门 | Less.js 中文文档
+		http://less.bootcss.com/#
+		2、Less 中文网
+		http://lesscss.cn/
+		
+		
+	</body>
+</html>
