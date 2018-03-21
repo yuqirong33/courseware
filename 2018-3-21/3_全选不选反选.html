@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+       <button>全选</button>
+       <button>反选</button>
+       <button>全不选</button>
+
+       <input type="checkbox">
+       <input type="checkbox">
+       <input type="checkbox">
+       <input type="checkbox">
+       <input type="checkbox">
+       <input type="checkbox">
+       <input type="checkbox">
+    </div>
+<script src="jquery.js"></script>
+<script>
+    /*
+        在表单中使用prop去操作属性
+            checked
+        attr -> getAttribute、setAttribute
+
+        click()
+        mouseover()
+    */
+    
+    // $('button:eq(0)').click(function(){
+    //     $(':checkbox').prop('checked',true);
+    // })
+    // $('button:eq(1)').click(function(){
+    //     $(':checkbox').each(function(i,e){
+    //         if($(e).prop('checked')){
+    //             $(e).prop('checked',false);
+    //         }else{
+    //             $(e).prop('checked',true);
+    //         }
+    //     })
+    // })
+    // $('button:eq(2)').click(function(){
+    //     $(':checkbox').prop('checked',false);
+    // })
+
+    /*
+        
+    */
+    $('button').each(function(i,e){
+        //**jq对象才能使用jq中的方法,jq中可以用原生方法
+        console.log(e,$(e));
+        e.onclick = function(){
+        // $(e).click(function(){
+            if(i == 0){
+                $(':checkbox').prop('checked',true);
+            }else if (i == 1){
+                $(':checkbox').each(function(i,e){
+                    if($(e).prop('checked')){
+                        $(e).prop('checked',false);
+                    }else{
+                        $(e).prop('checked',true);
+                    }
+                })
+            }else{
+                $(':checkbox').prop('checked',false);
+            }
+        // });
+        }
+    })
+
+</script>
+</body>
+</html>

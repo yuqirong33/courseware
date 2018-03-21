@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+#box{
+    width:50px;
+    height: 50px;
+    border: 1px solid #000;
+}
+</style>
+</head>
+<body>
+    <div id="box">
+        <ul>
+            <li>1</li>
+            <li class="li-5">2</li>
+            <li>3</li>
+            <li class="li-5">4</li>
+            <li>5</li>
+        </ul>
+    </div>
+<script src="sizzle.js"></script>
+<script>
+
+    (function(global,factory){
+        "use strict"
+        factory(global);
+    })(typeof window !== 'undefined'?window:this,function(window,noGlobal){
+        function mQuery(selector){
+            return new ts(selector);
+        }
+
+        mQuery.prototype = {
+            constructor:mQuery,
+            css(){
+                if(arguments.length == 1){
+                    if(this.isStr(arguments[0])){
+                        //获取
+                        return getComputedStyle(this[0])[arguments[0]];
+                    }
+                    if(this.isObj(arguments[0])){
+                        //批量设置
+                        for(let i=0;i<this.length;i++){
+                            for(let attr in arguments[0]){
+                                // console.log(attr)
+                                this[i].style[attr] = arguments[0][attr];
+                            }
+                        }
+                    }
+                }else if(arguments.length == 2){
+                    this[0].style[arguments[0]] = arguments[1];
+                }
+                return this;
+            },
+            toS(obj){
+                return Object.prototype.toString.call(obj);
+            },
+            isStr(str){
+                return this.toS(str) === '[object String]';
+            },
+            isFn(fn){
+                return this.toS(fn) === '[object Function]';
+            },
+            isObj(obj){
+                return this.toS(obj) === '[object Object]';
+            }
+        }
+        
+        let ts = mQuery.tishen = function(selector){
+            if(this.isFn(selector)){
+                //ready
+                document.addEventListener('DOMContentLoaded',selector);
+            }else{
+                let arr = Sizzle(selector);
+                arr.forEach((e,i)=>{
+                    this[i] = e;
+                })
+
+                this.length = arr.length;
+            }
+            // console.log(arr);
+        }
+
+        ts.prototype = mQuery.prototype;
+
+        window.$ = mQuery;
+
+    });
+
+    // console.log($('li'));
+
+    /*
+        如果是一个字符串，获取元素
+        如果是一个对象批量设置
+
+        2个参数
+            设置
+
+        jq的链式调用就是return this
+
+    */
+
+//    console.log(  $('#box').css('width') );
+//  console.log($('li'))
+//   $('li').css({
+//     width:'100px',
+//     height:'100px',
+//     background:'red'
+//   })
+
+
+    // $('#box').css('width','200px').css('height','300px');
+
+$(function(){
+    //ready事件 -> 当DOM加载完成就执行 -> 并不是window.onload
+    alert(1);
+});
+</script>
+</body>
+</html>

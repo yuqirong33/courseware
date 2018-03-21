@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <input type="checkbox" index="c">
+    </div>
+<script src="jquery.js"></script>
+<script>
+    /*
+        当没有checked属性的时候，使用attr,返回undefined
+        而prop，返回false
+
+        小技巧:
+            只要涉及到操作checked就要用prop
+    */
+    // console.log($(':checkbox').attr('index'));
+    // console.log($(':checkbox').prop('checked'));
+</script>
+</body>
+</html>

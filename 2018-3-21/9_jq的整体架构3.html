@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    (function(global,factory){
+       "use strict"
+        factory(global);
+    })(typeof window !== 'undefind'?window:this,function(global,noGlobal){
+        function jQuery(){
+            return new baichuan;
+        }
+        jQuery.prototype = {
+            constructor:jQuery,
+            css:function(){
+                console.log('css来了');
+            }
+        }
+        let baichuan = jQuery.init = function(){
+
+        }
+        baichuan.prototype = jQuery.prototype;
+        // var undefind = 20;
+        // alert(undefind);
+        // alert(noGlobal);
+        global.$ = jQuery();
+    })
+    
+
+    /*
+        无new化操作
+            第一:想不在外面new
+            第二:不递归
+            第三:return 出来的对象要能使用css之类的方法
+
+        undefined的值会被修改，使用noGlobal其实就是能够直接使用数据类型中的undefined
+
+    */
+
+    // let $ = new jQuery;
+
+
+    // var jQuery = 10;
+
+    // var $ = jQuery();
+
+    // $.css();
+
+
+</script>
+</body>
+</html>

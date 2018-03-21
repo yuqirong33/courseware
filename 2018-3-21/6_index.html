@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+#box div{
+    display: none;
+}
+#box div:nth-of-type(1){
+    display: block;
+}
+.active{
+    background: yellow
+}
+
+</style>
+</head>
+<body>
+    <!-- <button>1</button>
+    <button>2</button>
+    <button>3</button> -->
+
+    <div id="box">
+        <div>1111</div>
+        <div>22222</div>
+        <div>3333</div>
+        <button class="active">1</button>
+        <button>2</button>
+        <button>3</button>
+        
+        
+       
+    </div>
+
+<script src="jquery.js"></script>
+<script>
+    /*
+        index方法
+            当前的元素在父级下排列的位置。
+
+            一般使用index的时候，最好在括号中加上范围
+        
+        siblings,出了自身以外的所有兄弟节点
+            小技巧：
+                如果有不同的元素，那么最好在括号中加上范围
+        
+    */
+    // $(':button').click(function(){
+    //     alert($(this).index('button'))
+    //     $(':button').eq($(this).index('button')).css('background','yellow');
+    // });
+    // $(':button').click(function(){
+    //     $(':button').removeClass('active');
+    //     $(this).addClass('active');
+    //     $('#box div').hide();
+    //     $('#box div').eq($(this).index('button')).show();
+    // });
+
+    $(':button').click(function(){
+        $(this).addClass('active').siblings('button').removeClass('active');
+        $('#box div').eq($(this).index('button')).show().siblings('#box div').hide();
+    });
+
+</script>
+</body>
+</html>

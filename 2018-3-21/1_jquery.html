@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+#box{
+    width:100px;
+    height: 100px;
+    background: red;
+    position: absolute;
+    top:0;
+    left:0;
+}
+</style>
+</head>
+<body>
+    <div id="box"></div>
+<script src="jquery.js"></script>
+<script>
+    /*
+        https://www.jquery123.com/
+
+        新框架只支持IE9以上，jquery它能全兼容
+
+        jquery:
+            吃的少，干的多
+
+        插件覆盖面大，目前市面上大概40%左右要使用它
+
+        1.0开头的版本
+
+        $
+
+        核心：
+            1、选择器
+            2、DOM操作、事件
+            3、ajax
+            4、运动
+
+    */
+
+    $('#box').click(function(){
+        $(this).animate({
+            width:500
+        }).delay(1000).animate({
+            height:500,
+            left:300,
+            top:100
+        },function(){
+            $(this).css('background','yellow')
+        })
+    });
+</script>
+</body>
+</html>

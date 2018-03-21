@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+p{
+    display: none;
+}
+p.show{
+    display: block
+}
+</style>
+</head>
+<body>
+    <div id="box">
+        <input type="button" value="点击">
+        <p>123</p>
+    </div>
+<script src="jquery.js"></script>
+<script>
+    /*
+        val()  -> value
+        text() -> innerText
+        html() -> innerHTML
+        addClass -> classList.add()
+        removeClass ->classList.remove()
+        toggleClass -> classList.toggle()
+    */
+    // $('#box').text('<span>呵呵</span>');
+    // $('#box').html('<span>呵呵</span>');
+
+    $(':button').click(function(){
+        console.log($(this).val());
+        $('p').toggleClass('show');
+    });
+</script>
+</body>
+</html>

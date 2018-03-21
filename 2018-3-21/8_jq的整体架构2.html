@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    (function(){
+        function jQuery(){
+            return new baichuan;
+        }
+        jQuery.prototype = {
+            constructor:jQuery,
+            css:function(){
+                console.log('css来了');
+            }
+        }
+
+        let baichuan = jQuery.init = function(){
+
+        }
+        baichuan.prototype = jQuery.prototype;
+
+        window.$ = jQuery();
+    })()
+    
+
+    /*
+        无new化操作
+            第一:想不在外面new
+            第二:不递归
+            第三:return 出来的对象要能使用css之类的方法
+    */
+
+    // let $ = new jQuery;
+
+
+    var jQuery = 10;
+
+    // var $ = jQuery();
+
+    $.css();
+    
+
+
+
+</script>
+</body>
+</html>
