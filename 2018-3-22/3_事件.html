@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+#box{
+    width:100px;
+    height: 100px;
+    background: red;
+    position: relative;
+}
+span{
+    position: absolute;
+    top:200px;
+}
+#box div{
+    position: absolute;
+    left:200px;
+}
+#box2 {
+    width:100px;
+    height: 100px;
+    background: green;
+
+}
+</style>
+</head>
+<body>
+    <div id="box">
+        <span>span</span>
+        <div>div</div>
+    </div>
+
+    <div id="box2"></div>
+<script src="jquery.js"></script>
+<script>
+    /*
+        addEventListener
+        removeEventListener
+
+        ev
+
+        在jquery中的事件，都是事件绑定(自定义事件)，都是通过on来扩展的
+        
+    */
+
+    // $('#box').click(function(){
+    //     alert(1);
+    // })
+    // $('#box').on('click',function(){
+    //     alert(1);
+    // });
+
+    /*
+        delegate-> 事件委托就是原理
+    */
+    // $('#box').on('click','span',function(){
+    //     alert(1);
+    //     console.log(this);
+    // });
+
+    $('#box').on('click.jiusni',function(){
+        alert(1);
+    });
+    $('#box').on('click',function(){
+        alert(2);
+    });
+
+    $('#box2').click(function(){
+        $('#box').trigger('click.jiusni');
+    })
+
+
+
+</script>
+</body>
+</html>

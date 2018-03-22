@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+
+</style>
+</head>
+<body>
+    <div id="box">
+        <input type="text" id="txt">
+        <button>点击添加</button>
+        <ul id="ul">
+            <li>000</li>
+        </ul>
+    </div>
+<script src="jquery.js"></script>
+<script>
+    /*
+        DOM的概念
+        增、删、改、查、替换
+        获取元素的宽高
+
+        $('#box').height() -> style
+        $('#box').innerHeight() -> clientHeight
+        $('#box').outerHeight() -> offsetHeight  支持margin
+
+
+        position().left/top   ->  offsetLeft/offsetTop
+
+        offset().left / top  -> getBoundingClientRect()
+
+
+
+    */
+
+   //console.log($('<li>'+ 123 +'</li>')[0]);//createElement
+
+  //console.log('<li>'+ 123 +'</li>')
+
+  /*
+    prependTo
+    appendTo
+
+    为了方便链式调用
+  */
+
+
+   $('button').click(function(){
+        if(!$('#txt').val()){
+           alert('请填写内容');
+           return;
+        }
+        $('<li>'+ $('#txt').val() +'</li>').prependTo($('#ul'))
+        .click(function(){
+            $(this).remove();
+        }).mouseover(function(){
+            $(this).css({color:'red'})
+        }).mouseout(function(){
+            $(this).css({color:'#000'})
+        })
+
+
+
+       //$('#ul').append($('<li>'+ $('#txt').val() +'</li>'));
+    //   $('#ul').prepend($('<li>'+ $('#txt').val() +'</li>'));
+    //   $('#ul li').first().before('<li>'+ $('#txt').val() +'</li>');
+      $('#txt').val('');
+   });
+
+</script>
+</body>
+</html>

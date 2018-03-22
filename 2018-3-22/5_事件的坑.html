@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+#box{
+    width:200px;
+    height: 200px;
+    border: 1px solid #000;
+}
+#box1{
+    width:50px;
+    height: 50px;
+background: yellow;
+}
+</style>
+</head>
+<body>
+    <div id="box">
+        <div id="box1"></div>
+    </div>
+<script src="jquery.js"></script>
+<script>
+    /*
+        在事件套事件的情况下，在下层事件加上off()把
+        上次的绑定解除。
+    */
+    $('#box').on('mouseover',function(){
+        $(this).css('border','2px solid green');
+        // alert(2);
+        $('#box1').off().on('click',function(ev){
+            // alert(1);
+            console.log(1);
+            $(this).css('background','skyblue');
+        });
+    });
+</script>
+</body>
+</html>

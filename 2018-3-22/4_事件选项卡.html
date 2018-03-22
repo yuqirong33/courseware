@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+#box div{
+    display: none;
+}
+#box div:nth-of-type(1){
+    display: block;
+}
+.active{
+    background: yellow
+}
+
+</style>
+</head>
+<body>
+    <!-- <button>1</button>
+    <button>2</button>
+    <button>3</button> -->
+
+    <div id="box">
+        <button class="active">1</button>
+        <button>2</button>
+        <button>3</button>
+        <div>百川</div>
+    </div>
+
+<script src="jquery.js"></script>
+<script>
+    /*
+        on中的第二个参数可以为一个对象（把数据传到事件中）
+
+        通过ev.data去获取
+    */
+    $(':button').on('click',{arr:['百川','刘春雨','爆民']},function(ev){
+        // console.log(ev.data);
+        $(':button').removeClass('active');
+        $(this).addClass('active');
+        $('#box div').html(ev.data.arr[$(this).index()]);
+    });
+
+</script>
+</body>
+</html>

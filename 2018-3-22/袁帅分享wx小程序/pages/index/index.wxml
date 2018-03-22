@@ -1,0 +1,19 @@
+<scroll-view scroll-y="true" lower-threshold="200" style="height:100%" bindscrolltolower="scrollHandler">
+  <view class="list-item" wx:for="{{movies}}" wx:key="{{index}}" wx:for-item="movieData">
+    <view class="movie-item" wx:for="{{movieData}}" wx:key="{{item._id}}" bindtap='gotoDetailHandler' data-id='{{item._id}}'>
+      <image class='poster' lazy-load='true' mode="widthFix" src="{{'http://douban.newfq.com/'+item.posterKey+'?imageMogr2/thumbnail/x1680/crop/1080x1600'}}"></image>
+      <view class='title'>
+        <text>{{item.rawTitle}} <text class='rate'>{{item.rate}}</text></text>
+      </view>
+      <view class='info'>
+        <text>爱情，搞笑 / 2016</text>
+      </view>
+    </view>
+  </view>
+  <view class='loading' wx:if="{{loading}}">
+      <image src="/assets/loading/loading-bars.svg"></image>
+  </view>
+</scroll-view>  
+<!-- <import src="/common/template/list.wxml"/>
+
+<template is="movie-list" data="{{movies, loading}}"/> -->

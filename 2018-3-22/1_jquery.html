@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+#box{
+    width:100px;
+    height: 100px;
+    border: 1px solid #000;
+}
+</style>
+</head>
+<body>
+    <div id="box" index="123">123213213</div>
+    <textarea name="" id="t" cols="30" rows="10"></textarea>
+<script src="jquery.js"></script>
+<script>
+    /*
+        #、.、input[type="checkbox"]、:checked、eq(num)
+        、:gt(),:lt(),:odd,:event
+
+        siblings
+
+        box.style.width = 100px
+
+        box:{
+            style:{
+                width:100,
+                height:100
+            }
+        }
+        
+        一般没有参数或者指定参数为获取
+        加了参数或者多个参数为设置
+        html()
+        text()
+        attr()
+        prop()
+        val()
+        css()
+
+        for(let i=0;i<2;i++){
+            //进循环
+            alert('大循环');
+            for(let j=0;j<5;j++){
+                alert('小循环');
+            }
+        }
+
+        each(function(i,e){
+
+        })
+
+        开发秘诀：
+            把原生转jQ对象 ->  $()
+
+            把jQ转原生 $(元素)[0]
+
+        if(data.content){
+
+        }
+
+        假:
+            ''、0、false、null、undefined、NaN
+
+        真:  非空字符串、非0数字、true、{}[]fn、唯一
+
+        index('范围') 它在父级中所占的位置
+
+
+    */
+    // console.log($('#box').html('<p>123</p>'))
+    // console.log($('#box').css('width','300px'))
+    // console.log($('#box').attr('index','321'))
+
+    // $('#box')[0].index = 10;
+    // console.log($('#box')[0].index);
+    // console.log($('#box').attr('index'));
+
+
+    // for(var i=0;i<2;i++){
+    //     //进循环
+    //     alert('大循环');
+    //     for(let j=0;j<5;j++){
+    //         alert('小循环');
+    //     }
+    // }
+    // alert(i)
+
+    const box = $('#box')//document.getElementById('box');
+
+    // box.style.width = '200px';
+    // box.style.height = '200px';
+
+
+    // $(box).css({
+    //     width:200,
+    //     height:300
+    // });
+
+    $(document).click(function(){
+        // console.log($('#t').css('height'))
+        console.log($('#t')[0].scrollHeight)
+    });
+
+</script>
+</body>
+</html>
