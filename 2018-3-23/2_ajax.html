@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body style="height:3000px">
+    
+    <input type="text" id="t"/><button >点击添加</button>
+    <ul>
+    </ul>
+
+<script src="jquery.js"></script>
+<script>
+$(function(){
+    /*
+        https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd=s&json=1&p=3&sid=1436_21096_17001_22074&req=2&csor=1&cb=jQuery1102025754728384481296_1521771556455&_=1521771556458
+    */
+    $('#t').keyup(function(){
+        $.ajax({
+            url:'https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?cb=?',
+            data:{
+                wd:$(this).val(),
+            },
+            dataType:'jsonp',
+            success:function(data){
+                $('ul').html('');
+                data.s.forEach(e=>{
+                    $('ul').append($('<li>'+ e +'</li>'))
+                })
+            }
+        });
+
+        // $.getJSON('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su?wd='+ $(this).val() +'&json=1&p=3&sid=1436_21096_17001_22074&req=2&csor=1&cb=?',function(data){
+        //     console.log(data);
+        // })
+    }); 
+});
+</script>
+</body>
+</html>

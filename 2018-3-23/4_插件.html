@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+#box{
+    width:100px;
+    height: 100px;
+    background: red;
+    position: absolute;;
+}
+</style>
+</head>
+<body>
+<script src="jquery.js"></script>
+<script>   
+    /*
+        $.extend()
+
+            1.
+                $.extend({},obj)  效果等同于Object.assgin()
+                可以在第一个参数中加true  -> deepClone
+            2.
+                插件接口:
+                    组件:$('#box').css();
+                        $('#box').tab()
+                        $.fn.extend({})
+                    工具:$.
+                        $.extend({})
+
+                $('#box').css()
+                $.ajax、$.getJSON
+
+    */
+    // let arr = [
+    //     1,
+    //     2,
+    //     [3,4,5]
+    // ];
+
+    // let arr2 = arr;
+
+    // let arr2 = $.extend(true,[],arr); //true的意思就是深度克隆
+
+    // arr2.push(6);
+
+    // arr2[2].push(6);
+
+    // console.log(arr);
+
+    let str = '    123    ';
+
+    // console.log($.trim(str));
+
+    $.extend({
+        trimLeft:function(str){
+            return str.replace(/\s+$/,'');
+        }
+    });
+
+     console.log($.trimLeft(str));
+
+
+
+</script>
+</body>
+</html>

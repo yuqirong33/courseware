@@ -1,0 +1,14 @@
+.window {
+  overflow: hidden;
+}
+.window_box {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.box_bg {
+  position: absolute;
+  top: 0;
+  z-index: -2;
+  filter: blur(15px) sepia(50%);
+  background-position: 1.5625rem;
+}

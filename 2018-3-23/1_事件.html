@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body style="height:3000px">
+    
+    <input type="text"/><button >点击添加</button>
+    <ul>
+       <li>123</li>
+    </ul>
+
+<script src="jquery.js"></script>
+<script>
+    /*
+        默认行为、冒泡都是return false
+
+        deleget() -> 原理，事件监听
+    */
+//    $(document).keydown(function(ev){
+//        if(ev.keyCode == 32){
+//             return false;
+//        }
+//    });
+
+    // $('li').click(function(){
+    //     alert($(this).text());
+    // });
+
+    $('ul').delegate('li','click',function(ev){
+        alert($(this).text());
+    });
+    $(':button').click(function(){
+        $('ul').html($('ul').html() + '<li>'+ $('input').val() +'</li>')
+        // $('li').click(function(){
+        //     alert($(this).text());
+        // });
+        $('input').val('');
+    });
+
+</script>
+</body>
+</html>
