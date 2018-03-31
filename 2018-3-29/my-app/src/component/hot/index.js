@@ -24,8 +24,7 @@ class HotList extends Component {
     }
     render() { 
         let {dataList} = this.state;
-        //
-        
+       
 
         let list = dataList.map((e,i)=>{
             console.log(e)

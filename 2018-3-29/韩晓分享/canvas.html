@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background: #000;
+        }
+        div{
+            width: 400px;
+            height: 350px;
+        }
+        #canvas{
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        
+        <canvas id="canvas" width="400" height="350"></canvas>
+        <button id="btn">按钮</button>
+    </div>
+<script>
+    let canvas = document.getElementById('canvas');
+    let oC = canvas.getContext('2d');
+    oC.lineWidth =  0.2;
+    oC.strokeStyle = 'red';
+
+    canvas.onmousedown = function(ev){
+        // console.log(111);
+        oC.moveTo(ev.pageX - canvas.offsetTop,ev.pageY - canvas.offsetLeft)
+        
+        document.onmousemove = function(ev){
+            // console.log(222);
+            oC.lineTo(ev.pageX - canvas.offsetTop,ev.pageY - canvas.offsetLeft)
+            oC.stroke();
+        }
+        document.onmouseup = function(ev){
+            // console.log(333);
+            document.onmousemove = document.onmouseup = null;
+        }
+    }
+
+    // let btn = document.getElementById('btn');
+    // btn.onclick = function(){
+    //     // oC.clearRect(0,0,canvas.width,canvas.height);
+    //     canvas.width = canvas.width;
+    // }
+
+
+
+    /*
+        moveTo() 这次画图的起始坐标
+        lineTo() 上个坐标点到这个坐标点之间的直线连接
+        stroke() 开始绘制
+    */
+</script>
+</body>
+</html>

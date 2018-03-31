@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            body{
+                margin: 0;
+                padding: 0;
+            }
+            .container{
+                width: 600px;
+                height: 500px;
+                border: 2px solid #000;
+                margin: 20px auto;
+                padding: 0 300px 0 200px;
+            }
+            .center, .left, .right{
+                height: 130px;
+                float: left;
+                position: relative;
+            }
+            .center{
+                background: red;
+                width: 100%;
+            }
+            .left{
+                background: greenyellow;
+                width: 200px;
+                margin-left: -100%;
+                left: -200px;
+            }
+            .right{
+                background: skyblue;
+                width: 300px;
+                margin-left: -300px;   
+                right: -300px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="center">center</div>
+            <div class="left">left</div>
+            <div class="right">right</div>
+        </div>
+        <!-- 
+            圣杯布局是Kevin Cornell在2006年提出的一个布局模型概念，在国内最早是由淘宝UED的工程师（传说是玉伯）改进并传播开来，在中国也有叫法是双飞翼布局，它的布局要求有几点：
+
+                三列布局，中间宽度自适应，两边定宽；
+
+                中间栏要在浏览器中优先展示渲染；
+
+                允许任意列的高度最高； 
+        -->
+        <!-- 
+            负的margin-left会让元素沿文档流向左移动，如果负的数值比较大就会一直移动到上一行
+            设置left部分的margin-left为-100%,就会使left向左移动一整个行的宽度，由于left左边是父元素的边框，所以left继续跳到上一行左移，一直移动到上一行的开头。
+            left上移过后，right就会处于上一行的开头位置，这时再设置right部分margin-left为负的宽度，right就会左移到上一行的末尾。
+        -->
+        
+    </body>
+</html>

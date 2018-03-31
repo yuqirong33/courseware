@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            body{
+                margin: 0;
+                padding: 0;
+            }
+            .container{
+                width: 600px;
+                height: 600px;
+                border: 2px solid #000;
+                margin: 20px auto;
+            }
+            .center, .left, .right{
+                height: 130px;
+                float: left;
+            }
+            .center{
+                background: red;
+                width: 100%;
+            }
+            .left{
+                background: greenyellow;
+                width: 200px;
+                margin-left: -100%;
+            }
+            .right{
+                background: skyblue;
+                width: 300px;
+                margin-left: -300px;   
+            }
+            .content{
+                margin: 0 300px 0 200px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="center">
+                <div class="content">center</div>
+            </div>
+            <div class="left">left</div>
+            <div class="right">right</div>
+        </div>
+
+        <!-- 
+            双飞翼布局比圣杯布局多创建一个div，但不用相对定位布局了
+         -->
+    </body>
+</html>

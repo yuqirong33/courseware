@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            body{
+                margin: 0;
+                padding: 0;
+            }
+            .container{
+                position: relative;
+            }
+            .center, .left, .right{
+                top: 0;
+                height: 130px;
+            }
+            .center{
+                background: red;
+                margin: 0 300px 0 200px;
+            }
+            .left{
+                background: greenyellow;
+                width: 200px;
+                position: absolute;
+                left: 0;
+            }
+            .right{
+                background: skyblue;
+                width: 300px;
+                position: absolute;
+                right: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="center">center</div>
+            <div class="left">left</div>
+            <div class="right">right</div>
+        </div>
+    </body>
+</html>

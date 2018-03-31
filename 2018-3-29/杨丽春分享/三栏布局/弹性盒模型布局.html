@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+            body{
+                margin: 0;
+                padding: 0;
+            }
+            .container{
+                display: flex;
+                height: 130px;
+            }
+            .center{
+                background: red;
+                flex-grow: 1;
+            }
+            .left{
+                background: greenyellow;
+                order: -1;
+                flex-basis: 200px;
+            }
+            .right{
+                background: skyblue;
+                flex-basis: 300px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="center">center</div>
+            <div class="left">left</div>
+            <div class="right">right</div>
+        </div>
+        <!-- 
+            order： 定义元素的排列循序，值越小越靠前，默认为0
+            flex-basis: 宽
+            flex-grow: 将剩余空间都分配给了center
+         -->
+    </body>
+</html>

@@ -1,0 +1,258 @@
+@rem:30rem;
+@background100: 100%;       //给百分百平铺背景的图片
+@little: 558/@rem 815/@rem;
+
+body{
+    margin: 0;
+    background: #fff;
+}
+i{
+    font-style: normal;
+}
+a{
+    color: inherit;
+    text-decoration: none;
+}
+img{
+    vertical-align: top;
+}
+ul,li{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+dl,dt,dd{
+    padding: 0;
+    margin: 0;
+}
+h1,h2,p{
+    margin: 0;
+}
+.clear:after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.header{
+    width: 100%;
+    height: 110/@rem;
+    background: #fce33e;
+}
+.section{
+    width: 100%;
+//  height: 1113/@rem;
+}
+.footer{
+    width: 100%;
+    height: 104/@rem;
+    background: #fff;
+    border-top: 6/@rem solid #f8f8f8;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+/*顶部*/
+.header{
+    .sex{
+        float: left;
+        width: 90/@rem;
+        height: 90/@rem;
+        text-align: center;
+        margin: 20/@rem 0 0 38/@rem;
+        img{
+            width: 42/@rem;
+            height: 37/@rem;
+        }
+        span{
+            display: inline-block;
+            width: 90/@rem;
+            font: (24/@rem) ~'/' (34/@rem) "微软雅黑";
+            color: #5e2f1f;
+            vertical-align: top;
+        }
+    }
+    .title{
+        float: left;
+        margin: 20/@rem 0 0 150/@rem;
+        width: 196/@rem;
+        height: 60/@rem;
+        background: #472313;
+        border: 4/@rem solid #472313;
+        border-radius: 50/@rem;
+        span{                              
+            display: inline-block;
+            font: bold (28/@rem) ~'/' (60/@rem) "微软雅黑";
+            width: 98/@rem;
+            text-align: center;           
+            border-radius: 50/@rem;
+            &:nth-child(1){
+                background: #fce33e;
+                color: #472313;
+            }
+            &:nth-child(2){
+                background: #472313;
+                color: #fce33e;
+            }
+        }
+    }
+    .search{
+        float: right;
+        width: 48/@rem;
+        height: 48/@rem;
+        margin: 30/@rem 30/@rem 0 0;
+    }
+}
+
+/*分类区*/
+.classify{
+//  display: none;
+    .nav{
+        height: 76/@rem;
+        padding: 8/@rem 11/@rem;
+        border-bottom: 8/@rem solid #f8f8f8;
+        font-size: 0;
+        span{            
+            margin-right: 13/@rem;
+            text-align: center;
+            &:nth-child(1) a{
+                border-bottom: 3/@rem solid #fce33e;            
+            }
+        }
+        a{
+            display: inline-block;
+            width: 91/@rem;
+            font: (30/@rem) ~'/' (77/@rem) "微软雅黑";
+        }       
+    }
+    .top-bar{                                           /*background: pink;*/
+        height: 94/@rem;
+        padding-left: 32/@rem;
+        margin: 16/@rem 0;
+        span{
+            font: (30/@rem) ~'/' (94/@rem) "微软雅黑";
+            padding-right: 20/@rem;
+            border-right: 4/@rem solid #e6e6e6;
+            margin-right: 20/@rem;
+            &:nth-child(1){
+                font-weight: bold;
+            }
+        }
+    }
+    .container{ 
+        overflow: hidden;
+    }
+    .box{
+        padding-left: 34/@rem;
+        font-size: 0; 
+        margin-bottom: 34/@rem;       
+    }
+    .box-img{
+        float: left;
+        width: 302/@rem;
+        padding-right: 30/@rem;
+    }
+    .txt{
+        float: left;
+        h2{
+            font: bold (34/@rem) ~'/' (56/@rem) "微软雅黑";
+            color: #323232;
+        }
+        p{
+            font: (26/@rem) ~'/' (44/@rem) "微软雅黑";
+            color: #b6b6b6;
+        }
+        .agree{
+            display: inline-block;
+            margin-right: 17/@rem;
+            i{
+                display: inline-block;
+                width: 50/@rem;
+                height: 50/@rem;
+                background: url(../img/little.png) no-repeat -293/@rem -300/@rem;
+                background-size: @little;
+            }
+            span{
+                display: inline-block;
+                font: (32/@rem) ~'/' (40/@rem) "微软雅黑";
+                color: #929292;
+                vertical-align: top;
+                margin-top: 10/@rem;
+            }
+        }
+        .comment{
+            display: inline-block;
+            margin-right: 17/@rem;
+            i{
+                display: inline-block;
+                width: 50/@rem;
+                height: 50/@rem;
+                background: url(../img/little.png) no-repeat -205/@rem -300/@rem;
+                background-size: @little;
+            }
+            span{
+                display: inline-block;
+                font: (32/@rem) ~'/' (40/@rem) "微软雅黑";
+                color: #929292;
+                vertical-align: top;
+                margin-top: 10/@rem;
+            }
+        }
+    }
+}
+
+/*尾部*/
+.footer{
+    ul{
+        height: 104/@rem;
+    }
+    li{
+        float: left;
+        width: 90/@rem;
+        height: 90/@rem;
+        margin: 4/@rem 0 0 84/@rem;
+        font-size: 0;
+        text-align: center;
+        .img{
+            width: 60/@rem;
+            height: 60/@rem;
+            background: #fff;
+            border-radius: 50%;
+            font: (20/@rem) ~'/' (60/@rem) "微软雅黑";
+            text-align: center;
+        }
+        i{
+            display: inline-block;
+            width: 90/@rem;
+            height: 60/@rem;
+            
+        }
+        .img1{
+            background: url(../img/little.png) no-repeat 0 0;
+            background-size: @little;
+        }
+        .img2{
+            background: url(../img/little.png) no-repeat -90/@rem 0;
+            background-size: @little;
+        }
+        .img3{
+            background: url(../img/little.png) no-repeat -180/@rem 0;
+            background-size: @little;
+        }
+        .img4{
+            background: url(../img/little.png) no-repeat -270/@rem 0;
+            background-size: @little;
+        }
+        a{
+            font: (23/@rem) ~'/' (34/@rem) "微软雅黑";
+            color: #2e2e2e;
+        }
+    }
+}
+
+.empty{
+    width: 100%;
+    height: 110/@rem;
+    background: #000;
+}
